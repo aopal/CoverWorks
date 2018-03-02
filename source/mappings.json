@@ -1,0 +1,28 @@
+[{
+  "matcher": "(javascript|java script|es6|coffeescript|typescript|css|html|angular|react|electron|extension|front.?end(.web)?)",
+  "text": "I have considerable background in front-end web development having worked multiple jobs in the field using technologies such as <b>Javascript/ES6</b>, <b>Typescript</b>, <b>CSS</b>, <b>Less</b>, <b>Sass</b>, <b>jQuery</b>, <b>AngularJS</b>, <b>React</b> and <b>Electron</b>. I also have experience building browser extensions for Google Chrome."
+}, {
+  "matcher": "(ruby|rails|node|express|back.?end(.web)?)",
+  "text": "At past companies I've had extensive experience writing server-side code in both <b>node.js</b> and <b>Ruby</b>, using frameworks such as <b>express.js</b>, <b>Rails</b> and <b>Sinatra</b>. I've written servers for personal projects, as well as configuring the DNS for them."
+}, {
+  "matcher": "(c\\+\\+|object.oriented| oop)",
+  "text": "I am highly experienced with object-oriented programming, having taken multiple courses in <b>C</b> and <b>C++</b>. These courses have involved group projects in which I have taken the role of team lead and have also designed the structure of the entire multi-thousand line program."
+}, {
+  "matcher": "(database|sql|migration)",
+  "text": "Past jobs have had me using <b>MySQL</b> often, writing many complex queries and optimizing table indices. I've also written synchronous migrations on large tables (~2 billion ids) using a company-internal fork of <b>LHM</b>."
+}, {
+  "matcher": "(aws|amazon.web.service|heroku|azure)",
+  "text": "I have used <b>Amazon Web Services</b> in past co-op jobs, particularly <b>EC2</b>, <b>ECS</b> and <b>IAM</b>, though I'm also familiar with S3, SQS, Elastic Beanstalk, Kinesis, OpsWorks and CloudWatch. I've been tasked with creating new staging instances, as well as first-time setup of new microservices. I've also hosted personal projects on <b>Heroku</b>."
+}, {
+  "matcher": "(windows|os x|macos|mac|unix|linux|bash|shell.script)",
+  "text": "At past companies I have developed on all of <b>Windows</b>, <b>OS X</b> and <b>Unix/Linux</b> environments and would consider myself comfortable coding on each of them. <b>Bash</b> scripting has become a regularly used tool in this way."
+}, {
+  "matcher": "(git|github|mercurial|version.control|vcs)",
+  "text": "I have worked extensively with several version control softwares such as <b>Git</b>, <b>Github</b> and <b>Mercurial</b> in the contexts of university classes, independent projects and work environments. I have also researched into these technologies for past work term reports."
+}, {
+  "matcher": "(research|proof.of.concept|prototype|prototyping|r&d|r & d)",
+  "text": "At all my previous companies I have worked on research projects, quickly producing detailed proof-of-concepts for technologies such as <b>Electron</b>, <b>Aurelia</b>, <b>Parsehub</b>, <b>DialogFlow</b> and the <b>Google Web Speech API</b>. At Flipp I researched a long-standing issue surrounding stale database locks and designed a solution to fix it."
+}, {
+  "matcher": "(scienctific)",
+  "text": "In my 2B term I took Physics 239: <b>Computational Physics</b>. Using both C++ and Octave, a free version of <b>Matlab</b>, this course teaches an object‐oriented approach to many physics problems, with more general methods taught as well, such as solving differential equations and Monte Carlo techniques."
+}]
