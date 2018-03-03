@@ -12,6 +12,7 @@ function formatDate(date) {
 
   return  monthNames[monthIndex] + ' ' + day + ', ' + year;
 }
+
 function httpGet(theUrl, callback) {
   var xmlHttp = new XMLHttpRequest();
   xmlHttp.onreadystatechange = function () {
@@ -24,8 +25,16 @@ function httpGet(theUrl, callback) {
 
 var base = ''
 var mappings = ''
-httpGet(chrome.extension.getURL("base.html"), (res) => {base = res})
-httpGet(chrome.extension.getURL("mappings.json"), (res) => {mappings = JSON.parse(res)})
+
+chrome.runtime.sendMessage({ loadOptions: true }, (response) => {})
+chrome.runtime.onMessage.addListener(
+  function (request, sender, sendResponse) {
+    if (request.options) {
+      console.log(request)
+      mappings = JSON.parse(request.mappings);
+      base = request.base;
+    }
+  });
 
 function coverGen() {
   let trs = document.getElementById("postingDiv").getElementsByTagName("tr")
@@ -34,7 +43,7 @@ function coverGen() {
   for (var i = 0; i < trs.length; i++)
     searchTexts.push(trs[i].textContent.trim().replace(/\s+/g, ' '))
 
-  let title = searchTexts.find((a) => {  return a.includes("Job Title:")}).split(':')[1]
+  let title = searchTexts.find((a) => { return a.includes("Job Title:")}).split(':')[1]
   let company = searchTexts.find((a) => { return a.includes("Organization:") }).split(':')[1]
 
   let combinedText = searchTexts.join('\n')
@@ -57,7 +66,7 @@ function coverGen() {
 post = document.getElementById("postingDiv").parentNode
 
 div = document.createElement("div")
-div.innerHTML = "<button id='cover-gen' style='color: #fff; background-color: #45B6F7; border-radius: 100px; border: none; padding: 6px; margin: 4px;'>Generate Cover Letter</button>"
+div.innerHTML = "<button id='cover-gen' class='btn btn-primary'>Generate Cover Letter</button>"
 document.body.appendChild(div);
 
 post.insertBefore(div, post.childNodes[0]);

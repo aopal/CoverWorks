@@ -1,15 +1,17 @@
 {
     "manifest_version": 2,
     "name": "WaterlooWorks Cover Letter Generator",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "Generate cover letters in WaterlooWorks",
+    "options_page": "options.html",
     "permissions": [
       "downloads",
-      "tabs"
+      "tabs",
+      "storage"
     ],
     "background": {
       "scripts": ["background.js"],
-      "persistent": false
+      "persistent": true
     },
     "content_scripts": [{
         "matches": ["*://waterlooworks.uwaterloo.ca/myAccount/co-op/coop-postings.htm"],
@@ -18,6 +20,10 @@
     }],
     "web_accessible_resources": [
       "base.html",
-      "mappings.json"
+      "mappings.json",
+      "ace.js",
+      "mode-json.js",
+      "mode-html.js",
+      "theme-monokai.js"
     ]
 }
