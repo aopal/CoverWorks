@@ -1,3 +1,15 @@
+var base = ''
+var mappings = ''
+
+chrome.runtime.sendMessage({ loadOptions: true }, (response) => {})
+chrome.runtime.onMessage.addListener(
+  function (request, sender, sendResponse) {
+    if (request.options) {
+      mappings = JSON.parse(request.mappings);
+      base = request.base;
+    }
+  });
+
 function formatDate(date) {
   var monthNames = [
     "January", "February", "March",
@@ -12,29 +24,6 @@ function formatDate(date) {
 
   return  monthNames[monthIndex] + ' ' + day + ', ' + year;
 }
-
-function httpGet(theUrl, callback) {
-  var xmlHttp = new XMLHttpRequest();
-  xmlHttp.onreadystatechange = function () {
-    if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
-      callback(xmlHttp.responseText);
-  }
-  xmlHttp.open("GET", theUrl, true); // true for asynchronous 
-  xmlHttp.send(null);
-}
-
-var base = ''
-var mappings = ''
-
-chrome.runtime.sendMessage({ loadOptions: true }, (response) => {})
-chrome.runtime.onMessage.addListener(
-  function (request, sender, sendResponse) {
-    if (request.options) {
-      console.log(request)
-      mappings = JSON.parse(request.mappings);
-      base = request.base;
-    }
-  });
 
 function coverGen() {
   let trs = document.getElementById("postingDiv").getElementsByTagName("tr")
@@ -64,11 +53,8 @@ function coverGen() {
 }
 
 post = document.getElementById("postingDiv").parentNode
-
 div = document.createElement("div")
 div.innerHTML = "<button id='cover-gen' class='btn btn-primary'>Generate Cover Letter</button>"
 document.body.appendChild(div);
-
 post.insertBefore(div, post.childNodes[0]);
-
 document.getElementById("cover-gen").onclick = coverGen
