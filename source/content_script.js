@@ -44,10 +44,10 @@ function coverGen() {
     }
   }
 
-  let text = base.replace(/DATE/g, formatDate(new Date()))
-  text = text.replace(/COMPANY/g, company.trim())
-  text = text.replace(/POSITION/g, title.trim())
-  text = text.replace(/BODY/g, body.trim())
+  let text = base.replace(/\$DATE/g, formatDate(new Date()))
+  text = text.replace(/\$COMPANY/g, company.trim())
+  text = text.replace(/\$POSITION/g, title.trim())
+  text = text.replace(/\$BODY/g, body.trim())
 
   chrome.runtime.sendMessage({ generateLetter: true, letterText: text }, () => {})
 }

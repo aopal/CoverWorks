@@ -3,7 +3,7 @@ chrome.runtime.onMessage.addListener(
     if (request.generateLetter) {
       var blob = new Blob([request.letterText], { type: "text/html" })
       var url = URL.createObjectURL(blob)
-      chrome.tabs.create({ url: url })
+      chrome.tabs.create({ url: chrome.extension.getURL("editor.html") + "?blob=" + url })
     } else if (request.saveOptions) {
       chrome.storage.sync.set({
         mappings: request.mappings,

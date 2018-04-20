@@ -1,6 +1,6 @@
 {
     "manifest_version": 2,
-    "name": "WaterlooWorks Cover Letter Generator",
+    "name": "CoverWorks",
     "version": "0.0.2",
     "description": "Generate cover letters in WaterlooWorks",
     "options_page": "options.html",
@@ -19,6 +19,8 @@
         "run_at": "document_end"
     }],
     "web_accessible_resources": [
+      "editor.html",
+      "editor.js",
       "base.html",
       "mappings.json",
       "ace.js",
