@@ -36,5 +36,5 @@ function httpGet(theUrl, callback) {
 var defaultBase = ''
 var defaultMappings = ''
 httpGet(chrome.extension.getURL("base.html"), (res) => { defaultBase = res })
-httpGet(chrome.extension.getURL("mappings.json"), (res) => { defaultMappings = JSON.parse(res) })
+httpGet(chrome.extension.getURL("mappings.json"), (res) => { defaultMappings = res })
 

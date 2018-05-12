@@ -28,18 +28,18 @@ function restore_options() {
 chrome.runtime.onMessage.addListener(
   function (request, sender, sendResponse) {
     if (request.options) {
-      if (request.mappings == ""){
-        httpGet(chrome.extension.getURL('mappings.json'), (response) => {
-          mappings.session.getDocument().setValue(response)
-        })
-      } if (request.base == "") {
-        httpGet(chrome.extension.getURL('base.html'), (response) => {
-          base.session.getDocument().setValue(response)
-        })
-      } else {
+      // if (request.mappings == ""){
+      //   httpGet(chrome.extension.getURL('mappings.json'), (response) => {
+      //     mappings.session.getDocument().setValue(response)
+      //   })
+      // } if (request.base == "") {
+      //   httpGet(chrome.extension.getURL('base.html'), (response) => {
+      //     base.session.getDocument().setValue(response)
+      //   })
+      // } else {
         mappings.session.getDocument().setValue(request.mappings)
         base.session.getDocument().setValue(request.base)
-      }
+      // }
     }
   });
 
