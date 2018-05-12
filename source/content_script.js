@@ -52,9 +52,10 @@ function coverGen() {
   chrome.runtime.sendMessage({ generateLetter: true, letterText: text }, () => {})
 }
 
-post = document.getElementById("postingDiv").parentNode
+post = document.getElementById("mainContentDiv").getElementsByClassName("orbis-posting-actions")[0]
 div = document.createElement("div")
-div.innerHTML = "<button id='cover-gen' class='btn btn-primary'>Generate Cover Letter</button>"
-document.body.appendChild(div);
-post.insertBefore(div, post.childNodes[0]);
+div.innerHTML = "<button id='cover-gen' class='btn btn-primary btn-large'>Generate Cover Letter</button>"
+post.appendChild(div)
+Array.from(post.getElementsByTagName('div')).forEach((elem) => {elem.style.display = "inline-block"})
+
 document.getElementById("cover-gen").onclick = coverGen

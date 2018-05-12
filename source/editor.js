@@ -1,4 +1,4 @@
-function httpGetAsync(theUrl, callback)
+function httpGet(theUrl, callback)
 {
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.onreadystatechange = function() { 
@@ -11,19 +11,19 @@ function httpGetAsync(theUrl, callback)
 
 let params = (new URL(document.location)).searchParams;
 let editor = ace.edit("editor");
-console.log(ace);
 editor.setTheme("ace/theme/monokai");
 editor.setOption("showPrintMargin", false)
 editor.setOptions({fontSize:14})
 editor.session.setMode("ace/mode/html");
 editor.session.setUseWrapMode(true);
-editor.commands.addCommand({
-  name: 'save',
-  bindKey: { win: "Ctrl-S", "mac": "Cmd-S" },
-  exec: function (editor) {
-    window.print();
-  }
-})
+editor.setShowInvisibles(true)
+// editor.commands.addCommand({
+//   name: 'save',
+//   bindKey: { win: "Ctrl-S", "mac": "Cmd-S" },
+//   exec: function (editor) {
+//     window.print();
+//   }
+// })
 
 editor.commands.addCommand({
   name: 'print',
@@ -40,14 +40,14 @@ editDiv.onkeyup = editDiv.onkeypress = () => {
 
 window.addEventListener('keydown', function(event) {
     if (event.ctrlKey || event.metaKey) {
-      if (String.fromCharCode(event.which).toLowerCase() == 's'){
-        event.preventDefault();
-        window.print();
-      }
+      // if (String.fromCharCode(event.which).toLowerCase() == 's'){
+      //   event.preventDefault();
+      //   window.print();
+      // }
     }
 });
 
-httpGetAsync(params.get("blob"), (response) => {
+httpGet(params.get("blob"), (response) => {
   document.getElementById("preview").innerHTML = response;
   editor.session.getDocument().setValue(response)
 })
