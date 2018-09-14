@@ -2,6 +2,8 @@
 
 Chrome extension that adds a "Generate Cover Letter" button to job postings that will auto-generate a cover letter for the posting. [Download it on the Chrome store](https://chrome.google.com/webstore/detail/maafneclmoeadjjnhihbnpgnnbmlibpi)
 
+I've been personally using CoverWorks for several terms now, and I've yet to see an employer have a negative reaction to it. They don't care that it only takes a couple seconds to "write," they're just impressed to get a cover letter relevant to the posting, instead of a generic one or nothing.
+
 *Note: CoverWorks is still in development. It may still have bugs and/or terrible UI*
 
 ![](screenshot.png)
