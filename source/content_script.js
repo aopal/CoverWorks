@@ -52,10 +52,22 @@ function coverGen() {
   chrome.runtime.sendMessage({ generateLetter: true, letterText: text }, () => {})
 }
 
-post = document.getElementById("mainContentDiv").getElementsByClassName("orbis-posting-actions")[0]
-div = document.createElement("div")
-div.innerHTML = "<button id='cover-gen' class='btn btn-primary btn-large'>Generate Cover Letter</button>"
-post.appendChild(div)
-Array.from(post.getElementsByTagName('div')).forEach((elem) => {elem.style.display = "inline-block"})
+function isPostingPage() {
+  for (const div of document.querySelectorAll("div.span6")) {
+    if (div.textContent.replace(/\s+/g, ' ').match(/Job ID: [0-9]{5,}/)) {
+      return true;
+    }
+  }
 
-document.getElementById("cover-gen").onclick = coverGen
+  return false;
+}
+
+if (isPostingPage()) {
+  post = document.getElementById("mainContentDiv").getElementsByClassName("orbis-posting-actions")[0]
+  div = document.createElement("div")
+  div.innerHTML = "<button id='cover-gen' class='btn btn-primary btn-large'>Generate Cover Letter</button>"
+  post.appendChild(div)
+  Array.from(post.getElementsByTagName('div')).forEach((elem) => {elem.style.display = "inline-block"})
+
+  document.getElementById("cover-gen").onclick = coverGen
+}
